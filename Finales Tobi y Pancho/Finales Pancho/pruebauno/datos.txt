@@ -1,0 +1,15 @@
+saleArriba 10 40 15 45
+saleDerecha 50 30 55 31
+saleAbajo 15 10 16 9
+salePrimeroDerechaDespuesArriba 55 30 56 31
+salePrimeroDerechaDespuesAbajo 55 30 56 29
+salePrimeroArribaDespuesDerecha 40 40 41 45
+salePrimeroAbajoDespuesDerecha 10 10 11 9
+saleBordeUno 62 50 63 50
+saleBordeUno 62 50 63 51
+saleBordeDos 63 41 64 40
+saleBordeUno 63 41 64 41
+saleBordeTres 50 10 51 10
+saleBordeTres 37 30 36 29
+saleBordeDos 62 10 63 16
+tarda 1 1 4 3

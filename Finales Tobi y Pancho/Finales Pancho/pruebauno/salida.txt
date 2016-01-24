@@ -1,0 +1,15 @@
+Longitud recorrido:  0.501 || ID:  saleBordeUno || Borde: Borde_Uno.
+Longitud recorrido:  0.567 || ID:  saleBordeUno || Borde: Borde_Uno.
+Longitud recorrido:  1.752 || ID:  saleBordeUno || Borde: Borde_Uno.
+Longitud recorrido:  2.831 || ID:  saleBordeDos || Borde: Borde_Dos.
+Longitud recorrido:  12.502 || ID:  saleBordeTres || Borde: Borde_Tres.
+Longitud recorrido:  14.142 || ID:  saleAbajo || Borde: Borde_Inf.
+Longitud recorrido:  14.142 || ID:  salePrimeroAbajoDespuesDerecha || Borde: Borde_Inf.
+Longitud recorrido:  14.145 || ID:  salePrimeroDerechaDespuesArriba || Borde: Borde_Uno.
+Longitud recorrido:  14.145 || ID:  salePrimeroDerechaDespuesAbajo || Borde: Borde_Tres.
+Longitud recorrido:  15.307 || ID:  saleDerecha || Borde: Borde_Dos.
+Longitud recorrido:  18.260 || ID:  saleBordeDos || Borde: Borde_Dos.
+Longitud recorrido:  20.396 || ID:  salePrimeroArribaDespuesDerecha || Borde: Borde_Sup.
+Longitud recorrido:  28.284 || ID:  saleArriba || Borde: Borde_Sup.
+Longitud recorrido:  42.426 || ID:  saleBordeTres || Borde: Borde_Inf.
+Longitud recorrido:  75.980 || ID:  tarda || Borde: Borde_Uno.

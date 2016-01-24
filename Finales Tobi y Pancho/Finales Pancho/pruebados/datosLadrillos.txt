@@ -1,0 +1,13 @@
+ladUno 1 10.5 10 1
+ladDos 6 9 9 2
+ladTresBis 4 7 3
+ladTres 4 6.5 3
+ladCuat 1 5 7.2 4
+ladCuatBis 9 11 4 
+ladCin 1 11 5
+ladSeis 1 4 6
+ladSiet 6 10 7
+ladOcho 0.3 3.9 8
+ladNue 0.5 4.2 9
+ladDie 3.2 6.2 10
+ladQuin 8 11 8 15 

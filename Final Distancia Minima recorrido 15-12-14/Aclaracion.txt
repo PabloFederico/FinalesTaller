@@ -1,0 +1,4 @@
+Este fue el final que rendi, asique no es lo mas prolijo del mundo jajaja.
+Se habla de personajes porque en el enunciado en vez de barriles hablaba de personajes. 
+Ademas, en el archivo "escenario.txt" se agrego un numero al comienzo que indica la cantidad de plataformas
+que habia en ese nivel (Lo cual fue consultado con Azcurra que no habia drama en hacerlo).

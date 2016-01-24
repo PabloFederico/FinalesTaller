@@ -1,0 +1,3 @@
+barrilLoco 7 8
+barrilSucio 9 0
+barrilRoto 12 2

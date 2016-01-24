@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0080)http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="http://cdn.api.twitter.com/1/urls/count.json?callback=WPCOMSharing.update_twitter_count&url=http%3A%2F%2Fcse250.wordpress.com%2F2012%2F11%2F01%2Fpractice-problems-on-recursion-iteration%2F&_=1355487771885"></script>
+
+
+
+<title>Practice problems on recursion &amp; iteration « CSE 250 — Fall 2012</title>
+
+<link rel="stylesheet" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/style.css" type="text/css" media="screen">
+
+<link rel="pingback" href="http://cse250.wordpress.com/xmlrpc.php">
+
+<link rel="alternate" type="application/rss+xml" title="CSE 250 -- Fall 2012 » Feed" href="http://cse250.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="CSE 250 -- Fall 2012 » Comments Feed" href="http://cse250.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="CSE 250 -- Fall 2012 » Practice problems on recursion &amp; iteration Comments Feed" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/feed/">
+<script src="http://edge.quantserve.com/quant.js" async="" type="text/javascript"></script><script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script><style type="text/css"></style>
+<link rel="stylesheet" id="all-css-0" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/saved_resource" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/saved_resource(1)"></script>
+<link rel="stylesheet" id="all-css-0" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://cse250.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://cse250.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Sample midterm exam 2 posted" href="http://cse250.wordpress.com/2012/10/30/sample-midterm-exam-2-posted/">
+<link rel="next" title="Solutions for assignment#5 (written assignment)" href="http://cse250.wordpress.com/2012/11/03/solutions-for-assignment5-written-assignment/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/Practice problems on recursion & iteration « CSE 250 — Fall 2012.htm">
+<link rel="shortlink" href="http://wp.me/p26BTg-le">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&url=http%3A%2F%2Fcse250.wordpress.com%2F2012%2F11%2F01%2Fpractice-problems-on-recursion-iteration%2F&for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&url=http%3A%2F%2Fcse250.wordpress.com%2F2012%2F11%2F01%2Fpractice-problems-on-recursion-iteration%2F&for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Practice problems on recursion &amp; iteration">
+<meta property="og:url" content="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/">
+<meta property="og:description" content="Write an iterative procedure and a recursive procedure for each of the following task: Given a vector of integers, return the minimum integer Given a vector of integers, return the product of all i...">
+<meta property="og:site_name" content="CSE 250 -- Fall 2012">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1311618091g">
+<link rel="openid.server" href="http://cse250.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://cse250.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://cse250.wordpress.com/osd.xml" title="CSE 250 -- Fall 2012">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+
+		/* ]]> */		
+		</style>
+		<style type="text/css">.recentcomments a{display:inline !important;padding: 0 !important;margin: 0 !important;}</style>
+<meta name="application-name" content="CSE 250 -- Fall 2012"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="SUNY Buffalo -- Computer Science and Engineering"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://cse250.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Practice problems on recursion &amp; iteration | CSE 250 -- Fall 2012 on WordPress.com">
+<meta name="description" content="Write an iterative procedure and a recursive procedure for each of the following task: Given a vector of integers, return the minimum integer Given a vector of integers, return the product of all integers in the vector; 1 is returned if the vector is empty Given a vector of integers, return a vector of integers…">
+
+<style type="text/css">
+table.recentcommentsavatar img.avatar {border: 0px; margin:0;}
+table.recentcommentsavatar a {border: 0px !important;background-color: transparent !important}
+td.recentcommentsavatartop {padding:0px 0px 1px 0px;margin:0px; }
+td.recentcommentsavatarend {padding:0px 0px 1px 0px;margin:0px; }
+td.recentcommentstexttop { border: none !important;padding:0px 0px 0px 10px;}
+td.recentcommentstextend { border: none !important;padding:0px 0px 2px 10px;}
+</style>		<style type="text/css">
+			#header {
+				background: transparent url(http://cse250.files.wordpress.com/2012/01/cropped-logo-png3.jpg) no-repeat;
+				border: none;
+			}
+		</style>
+		<style type="text/css">
+			#header h1,
+			#header h1 a,
+			#header h1 a:visited,
+			#header h4,
+			#header h4 a,
+			#header h4 a:visited,
+			.header-left {
+				color: #000000;
+			}
+		</style>
+
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+GS_googleAddAdSenseService("ca-pub-3443918307802676");
+GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post_adsafe");
+</script>
+<script type="text/javascript">
+GA_googleFetchAds();
+</script>
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/shThemeDefault.css"><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/services.css"><script src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/3e6c65d51fc16836fc664646b7c31de4.json" type="text/javascript"></script></head>
+
+<body class="single single-post postid-1316 single-format-standard highlander-enabled highlander-light">
+
+<div id="header">
+    <div class="header-left">
+                    <h4><a href="http://cse250.wordpress.com/">CSE 250 — Fall 2012</a></h4>
+                <p id="description">SUNY Buffalo — Computer Science and Engineering</p>
+    </div>
+    <div class="header-right">
+        <form method="get" id="searchform" action="http://cse250.wordpress.com/">
+            <div><label class="hidden" for="s">Search:</label>
+            <input type="text" value="" name="s" id="s">
+            <input type="submit" id="searchsubmit" value="Go"></div>
+        </form>
+    </div>
+</div>
+<div id="access">
+	<div id="nav">
+	    <div id="supernav" class="navleft nav">
+			<div class="menu-cse250s-homepage-container"><ul id="menu-cse250s-homepage" class="menu"><li id="menu-item-26" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26"><a href="http://www.cse.buffalo.edu/~hungngo/classes/2012/Fall/250/">CSE 250′s Home</a></li>
+<li id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27"><a href="http://www.cse.buffalo.edu/~hungngo/classes/2012/Fall/250/notes.html">Lecture Notes</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28"><a href="http://www.cse.buffalo.edu/~hungngo/classes/2012/Fall/250/assignments.html">Assignments</a></li>
+<li id="menu-item-861" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-861"><a href="https://www.google.com/calendar/embed?src=8sm83tv0cj9lrh4duee6l49g78%40group.calendar.google.com&ctz=America/New_York">Calendar</a></li>
+<li id="menu-item-878" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-878"><a href="http://en.cppreference.com/w/cpp">C++ Reference</a></li>
+</ul></div>	    </div>
+	    <div class="navright">
+	        <a class="rsslink" rel="nofollow" href="http://cse250.wordpress.com/feed/">Posts</a>
+	        <a class="rsslink" rel="nofollow" href="http://cse250.wordpress.com/comments/feed/">Comments</a>
+	    </div>
+	</div>
+
+	<div id="subnav" class="subnav nav">
+			<div class="menu">
+		<ul>
+				<li class="cat-item cat-item-217"><a href="http://cse250.wordpress.com/category/announcements/" title="View all posts filed under Announcements">Announcements</a>
+</li>
+	<li class="cat-item cat-item-2664"><a href="http://cse250.wordpress.com/category/assignments/" title="View all posts filed under Assignments">Assignments</a>
+</li>
+	<li class="cat-item cat-item-2093282"><a href="http://cse250.wordpress.com/category/c-basics/" title="View all posts filed under C++ basics">C++ basics</a>
+</li>
+	<li class="cat-item cat-item-89065"><a href="http://cse250.wordpress.com/category/code-samples/" title="View all posts filed under Code Samples">Code Samples</a>
+</li>
+	<li class="cat-item cat-item-156512"><a href="http://cse250.wordpress.com/category/office-hours/" title="View all posts filed under Office Hours">Office Hours</a>
+</li>
+	<li class="cat-item cat-item-3378"><a href="http://cse250.wordpress.com/category/algorithms/" title="View all posts filed under Algorithms">Algorithms</a>
+</li>
+	<li class="cat-item cat-item-59528644"><a href="http://cse250.wordpress.com/category/data-structures-2/" title="View all posts filed under Data Structures">Data Structures</a>
+</li>
+	<li class="cat-item cat-item-9855"><a href="http://cse250.wordpress.com/category/lectures/" title="View all posts filed under Lectures">Lectures</a>
+</li>
+	<li class="cat-item cat-item-2619"><a href="http://cse250.wordpress.com/category/installations/" title="View all posts filed under Installations">Installations</a>
+</li>
+	<li class="cat-item cat-item-78179899"><a href="http://cse250.wordpress.com/category/asymptotic-analsysis/" title="View all posts filed under Asymptotic analsysis">Asymptotic analsysis</a>
+</li>
+		</ul>
+	</div>
+	</div>
+</div>
+
+<div id="wrap">
+<div id="content">
+
+	<div id="content-left">
+
+		
+			<div id="nav-above">
+				<div class="nav-previous"><a href="http://cse250.wordpress.com/2012/10/30/sample-midterm-exam-2-posted/" rel="prev"><span class="meta-nav">←</span> Sample midterm exam 2&nbsp;posted</a></div>
+				<div class="nav-next"><a href="http://cse250.wordpress.com/2012/11/03/solutions-for-assignment5-written-assignment/" rel="next">Solutions for assignment#5 (written&nbsp;assignment) <span class="meta-nav">→</span></a></div>
+			</div>
+
+			<div class="post-1316 post type-post status-publish format-standard hentry category-algorithms tag-iteration tag-recursion">
+
+				<div class="entry">
+
+					<h1>Practice problems on recursion &amp;&nbsp;iteration</h1>
+
+					<div class="post-info">
+						<p>
+							<span class="time">November 1, 2012</span>
+															<span class="author">by <a href="http://cse250.wordpress.com/author/hungngo/" title="Posts by HQN" rel="author">HQN</a></span>
+																						<span class="post-comments"><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comments" title="Comment on Practice problems on recursion &amp; iteration">2 Comments</a></span>
+																				</p>
+					</div>
+
+					<p>Write an iterative procedure and a recursive procedure for each of the following task:</p>
+<ul>
+<li> Given a vector of integers, return the minimum integer
+</li><li> Given a vector of integers, return the product of all integers in the vector; 1 is returned if the vector is empty
+</li><li> Given a vector of integers, return a vector of integers which is the reverse of the input vector
+</li><li> Given a positive integer <img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/latex.php" alt="n" title="n" class="latex">, return <img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/latex(1).php" alt="n!" title="n!" class="latex">
+</li><li> Given two arrays of integers <code>A</code> and <code>B</code> return <code>true</code> if <code>B</code> is a subarray of <code>A</code> and <code>false</code> otherwise. (Imagine sliding <code>B</code> from left to right until you find a position where elements of <code>B</code> perfectly align with elements of <code>A</code>.)
+</li><li> Given a vector of integers, return a pair of integers, one is the min and one is the max of integers in the given vector. The pair is of type
+<p></p><div id="highlighter_746743" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_746743_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_746743" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1253219630g"></div><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword bold">struct</code> <code class="plain">Pair {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">min;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">max;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="plain">};</code></td></tr></tbody></table></div></div></div>
+</li></ul>
+<p>Problems of the above type will be in the exam.</p>
+
+<div class="wpadvert" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "extsearch");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "cse250.wordpress.com");
+GA_googleAddAttr("BlogId", "31128294");
+GA_googleAddAttr("AdSafe", "1");
+GA_googleAddAttr("Autotag", "science");
+GA_googleAddAttr("Tag", "algorithms");
+GA_googleAddAttr("Tag", "iteration");
+GA_googleAddAttr("Tag", "recursion");
+GA_googleAddAttr("Partner", "AOL");
+GA_googleAddAttr("theme_bg", "f0f0f0"); 
+GA_googleAddAttr("theme_border", "cccccc"); 
+GA_googleAddAttr("theme_text", "555555"); 
+GA_googleAddAttr("theme_link", "008DCF"); 
+GA_googleAddAttr("theme_url", "008DCF"); 
+GA_googleAddAdSensePageAttr("google_page_url", "http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/");
+GA_googleFillSlot("wpcom_below_post_adsafe");
+</script>
+</div>
+<style type="text/css">
+div.wpadvert>div { margin-top: 1em; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpadvert script[src*='shareth.ru']").length > 0 || jQuery(".wpadvert .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpadvert' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/?share=twitter&nb=1" title="Click to share on Twitter" id="sharing-twitter-1316"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/?share=facebook&nb=1" title="Share on Facebook" id="sharing-facebook-1316"><span>Facebook</span></a></li><li class="share-end"></li></ul><div class="sharing-clear"></div></div></div></div><div class="wpl-likebox sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="like-1316" class="wpl-button "><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/?like=1&source=post_flair&_wpnonce=d763d6158f" title="I like this." class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div class="wpl-count sd-like-count">Be the first to like this.</div></div></div></div><div class="clear"></div>
+					
+					<!--
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/"
+    dc:identifier="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/"
+    dc:title="Practice problems on recursion &amp;&nbsp;iteration"
+    trackback:ping="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/trackback/" />
+</rdf:RDF>					-->
+
+				</div>
+
+				<div class="post-meta">
+					<p>
+						<span class="categories">Filed under <a href="http://cse250.wordpress.com/category/algorithms/" title="View all posts in Algorithms" rel="category tag">Algorithms</a></span>
+						<span class="tags">Tagged with <a href="http://cse250.wordpress.com/tag/iteration/" rel="tag">Iteration</a>, <a href="http://cse250.wordpress.com/tag/recursion/" rel="tag">recursion</a></span>					</p>
+				</div>
+
+			</div>
+
+			
+						<p></p>
+
+			<div id="comments">
+	
+
+	<h3 id="comments-title">2 Responses to <em>Practice problems on recursion &amp;&nbsp;iteration</em>	</h3>
+
+	<ol class="commentlist snap_preview">
+				<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-512">
+		<div id="comment-512">
+		<div class="comment-author vcard">
+			<img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ad8c4cfbf9912f7ba6b3abef1df93d2e" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-ad8c4cfbf9912f7ba6b3abef1df93d2e-0">			<cite class="fn">yllis</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-512">November 7, 2012 at 12:13 pm</a></div>
+
+		<div class="comment-body"><p>Hi,<br>
+I am reading about NP class of problems and very interested in this topic, I went google and was suggested that “Computers and intractability: a guide to the theory of NP-completeness” of Garey and Johnson is a nice book, however its quite old (published 1979) and not available in the library until February. Is there any another book I should look for?<br>
+Thanks</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/?replytocom=512#respond" onclick="return addComment.moveForm(&quot;comment-512&quot;, &quot;512&quot;, &quot;respond&quot;, &quot;1316&quot;)">Reply</a>		</div>
+	</div>
+
+	<ul class="children">
+		<li class="comment byuser comment-author-hungngo bypostauthor odd alt depth-2 highlander-comment" id="li-comment-513">
+		<div id="comment-513">
+		<div class="comment-author vcard">
+			<img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/f73f6de5b519f67d3aa73cd03eebad88" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-f73f6de5b519f67d3aa73cd03eebad88-0">			<cite class="fn"><a href="http://www.cse.buffalo.edu/~hungngo" rel="external nofollow" class="url">HQN</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-513">November 7, 2012 at 1:20 pm</a></div>
+
+		<div class="comment-body"><p>Please see my newest post.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/?replytocom=513#respond" onclick="return addComment.moveForm(&quot;comment-513&quot;, &quot;513&quot;, &quot;respond&quot;, &quot;1316&quot;)">Reply</a>		</div>
+	</div>
+
+	</li>
+</ul>
+</li>
+	</ol>
+
+
+								<div id="respond" class="js">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://cse250.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+																										
+
+
+												
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 608px; line-height: normal; text-decoration: initial; letter-spacing: 0px;" tabindex="-1"></textarea><textarea id="comment" name="comment" placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value=""></div>
+				</div> 
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/wplogo.png" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+	
+	
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+});
+</script>
+
+<div id="comment-form-subscribe" style="display: none;"> 
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"> <label class="subscribe-label" id="subscribe-label" for="subscribe">Notify me of follow-up comments via email.</label></p></div>
+
+												<p class="form-submit" style="display: none;">
+							<input name="submit" type="submit" id="comment-submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="1316" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						
+<input type="hidden" name="genseq" value="1355487764">
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2d241d7ca6"></p><script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/form.js"></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1355487771834"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>			
+</div><!-- #comments -->
+	</div>
+
+<div id="sidebar">
+
+		<div id="recent-comments" class="widget widget_recent_comments">		<h4>Recent comments</h4>		<table class="recentcommentsavatar" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td title="student" class="recentcommentsavatartop" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/3e6c65d51fc16836fc664646b7c31de4" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-3e6c65d51fc16836fc664646b7c31de4-0"></td><td class="recentcommentstexttop">student on <a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/#comment-617">Solution to assignment 8&nbsp;…</a></td></tr><tr><td title="HQN" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/f73f6de5b519f67d3aa73cd03eebad88(1)" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-f73f6de5b519f67d3aa73cd03eebad88-1"></a></td><td class="recentcommentstextend"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow">HQN</a> on <a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/#comment-616">Solution to assignment 8&nbsp;…</a></td></tr><tr><td title="student" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/3e6c65d51fc16836fc664646b7c31de4" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-3e6c65d51fc16836fc664646b7c31de4-1"></td><td class="recentcommentstextend">student on <a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/#comment-615">Solution to assignment 8&nbsp;…</a></td></tr><tr><td title="Harsh Agarwal" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ba877c9f00b36e3a79c07b456bc1f2d9" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-ba877c9f00b36e3a79c07b456bc1f2d9-0"></td><td class="recentcommentstextend">Harsh Agarwal on <a href="http://cse250.wordpress.com/2012/12/12/assignment-8-grades-posted-on-ublearns/#comment-614">Assignment 8 grades posted on…</a></td></tr><tr><td title="250chris" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://gravatar.com/250chris" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cc5f359e6c6646c3e16d0d954c779b4a" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-cc5f359e6c6646c3e16d0d954c779b4a-0"></a></td><td class="recentcommentstextend"><a href="http://gravatar.com/250chris" rel="nofollow">250chris</a> on <a href="http://cse250.wordpress.com/2012/12/12/assignment-8-grades-posted-on-ublearns/#comment-613">Assignment 8 grades posted on…</a></td></tr><tr><td title="Harsh Agarwal" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/ba877c9f00b36e3a79c07b456bc1f2d9" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-ba877c9f00b36e3a79c07b456bc1f2d9-1"></td><td class="recentcommentstextend">Harsh Agarwal on <a href="http://cse250.wordpress.com/2012/12/12/assignment-8-grades-posted-on-ublearns/#comment-612">Assignment 8 grades posted on…</a></td></tr><tr><td title="HQN" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/f73f6de5b519f67d3aa73cd03eebad88(1)" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-f73f6de5b519f67d3aa73cd03eebad88-2"></a></td><td class="recentcommentstextend"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow">HQN</a> on <a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/#comment-610">Solution to assignment 8&nbsp;…</a></td></tr><tr><td title="student" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/9dd90bdfa69d1cd10743d678fec37c16" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-9dd90bdfa69d1cd10743d678fec37c16-0"></td><td class="recentcommentstextend">student on <a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/#comment-608">Solution to assignment 8&nbsp;…</a></td></tr><tr><td title="250chris" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://ubcse2012.wordpress.com/" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cc5f359e6c6646c3e16d0d954c779b4a" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-cc5f359e6c6646c3e16d0d954c779b4a-1"></a></td><td class="recentcommentstextend"><a href="http://ubcse2012.wordpress.com/" rel="nofollow">250chris</a> on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-604">(written) Assignment 8 is…</a></td></tr><tr><td title="jim" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cf2d58df2cc517644899e381ad3b27df" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-cf2d58df2cc517644899e381ad3b27df-0"></td><td class="recentcommentstextend">jim on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-603">(written) Assignment 8 is…</a></td></tr><tr><td title="HQN" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/f73f6de5b519f67d3aa73cd03eebad88(1)" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-f73f6de5b519f67d3aa73cd03eebad88-3"></a></td><td class="recentcommentstextend"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow">HQN</a> on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-602">(written) Assignment 8 is…</a></td></tr><tr><td title="jim" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cf2d58df2cc517644899e381ad3b27df" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-cf2d58df2cc517644899e381ad3b27df-1"></td><td class="recentcommentstextend">jim on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-601">(written) Assignment 8 is…</a></td></tr><tr><td title="HQN" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/f73f6de5b519f67d3aa73cd03eebad88(1)" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-f73f6de5b519f67d3aa73cd03eebad88-4"></a></td><td class="recentcommentstextend"><a href="http://www.cse.buffalo.edu/~hungngo" rel="nofollow">HQN</a> on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-600">(written) Assignment 8 is…</a></td></tr><tr><td title="jim" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cf2d58df2cc517644899e381ad3b27df" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-cf2d58df2cc517644899e381ad3b27df-2"></td><td class="recentcommentstextend">jim on <a href="http://cse250.wordpress.com/2012/12/01/written-assignment-8-is-out/#comment-599">(written) Assignment 8 is…</a></td></tr><tr><td title="250chris" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://ubcse2012.wordpress.com/" rel="nofollow"><img alt="" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/cc5f359e6c6646c3e16d0d954c779b4a" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-cc5f359e6c6646c3e16d0d954c779b4a-2"></a></td><td class="recentcommentstextend"><a href="http://ubcse2012.wordpress.com/" rel="nofollow">250chris</a> on <a href="http://cse250.wordpress.com/2012/12/05/helpful-links-for-assignment-8/#comment-595">Helpful links for assignment…</a></td></tr></tbody></table>
+	</div>		<div id="recent-posts-3" class="widget widget_recent_entries">		<h4>Recent Posts</h4>		<ul>
+					<li>
+				<a href="http://cse250.wordpress.com/2012/12/12/assignment-8-grades-posted-on-ublearns/" title="Assignment 8 grades posted on UBLearns">Assignment 8 grades posted on&nbsp;UBLearns</a>
+						</li>
+					<li>
+				<a href="http://cse250.wordpress.com/2012/12/09/solution-to-assignment-8-posted/" title="Solution to assignment 8 posted">Solution to assignment 8&nbsp;posted</a>
+						</li>
+					<li>
+				<a href="http://cse250.wordpress.com/2012/12/07/grades-for-assignment7-posted-on-ublearns/" title="Grades for Assignment#7 posted on UBLearns">Grades for Assignment#7 posted on&nbsp;UBLearns</a>
+						</li>
+					<li>
+				<a href="http://cse250.wordpress.com/2012/12/07/sample-final-solution-to-assignment-7-are-posted/" title="Sample Final + Solution to Assignment 7 are posted">Sample Final + Solution to Assignment 7 are&nbsp;posted</a>
+						</li>
+					<li>
+				<a href="http://cse250.wordpress.com/2012/12/05/helpful-links-for-assignment-8/" title="Helpful links for assignment 8">Helpful links for assignment&nbsp;8</a>
+						</li>
+				</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4>Archives</h4>		<ul>
+			<li><a href="http://cse250.wordpress.com/2012/12/" title="December 2012">December 2012</a></li>
+	<li><a href="http://cse250.wordpress.com/2012/11/" title="November 2012">November 2012</a></li>
+	<li><a href="http://cse250.wordpress.com/2012/10/" title="October 2012">October 2012</a></li>
+	<li><a href="http://cse250.wordpress.com/2012/09/" title="September 2012">September 2012</a></li>
+	<li><a href="http://cse250.wordpress.com/2012/08/" title="August 2012">August 2012</a></li>
+		</ul>
+</div><div id="categories-2" class="widget widget_categories"><h4>Categories</h4>		<ul>
+			<li class="cat-item cat-item-3378"><a href="http://cse250.wordpress.com/category/algorithms/" title="View all posts filed under Algorithms">Algorithms</a>
+</li>
+	<li class="cat-item cat-item-217"><a href="http://cse250.wordpress.com/category/announcements/" title="View all posts filed under Announcements">Announcements</a>
+</li>
+	<li class="cat-item cat-item-2664"><a href="http://cse250.wordpress.com/category/assignments/" title="View all posts filed under Assignments">Assignments</a>
+</li>
+	<li class="cat-item cat-item-78179899"><a href="http://cse250.wordpress.com/category/asymptotic-analsysis/" title="View all posts filed under Asymptotic analsysis">Asymptotic analsysis</a>
+</li>
+	<li class="cat-item cat-item-2093282"><a href="http://cse250.wordpress.com/category/c-basics/" title="View all posts filed under C++ basics">C++ basics</a>
+</li>
+	<li class="cat-item cat-item-89065"><a href="http://cse250.wordpress.com/category/code-samples/" title="View all posts filed under Code Samples">Code Samples</a>
+</li>
+	<li class="cat-item cat-item-59528644"><a href="http://cse250.wordpress.com/category/data-structures-2/" title="View all posts filed under Data Structures">Data Structures</a>
+</li>
+	<li class="cat-item cat-item-2619"><a href="http://cse250.wordpress.com/category/installations/" title="View all posts filed under Installations">Installations</a>
+</li>
+	<li class="cat-item cat-item-9855"><a href="http://cse250.wordpress.com/category/lectures/" title="View all posts filed under Lectures">Lectures</a>
+</li>
+	<li class="cat-item cat-item-156512"><a href="http://cse250.wordpress.com/category/office-hours/" title="View all posts filed under Office Hours">Office Hours</a>
+</li>
+		</ul>
+</div><div id="meta-2" class="widget widget_meta"><h4>Meta</h4>			<ul>
+			<li><a href="http://cse250.wordpress.com/wp-login.php?action=register">Register</a></li>			<li><a href="http://cse250.wordpress.com/wp-login.php">Log in</a></li>
+			<li><a href="http://cse250.wordpress.com/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://cse250.wordpress.com/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>
+						</ul>
+</div>
+</div>
+</div>
+
+
+<div id="footer">
+	<div class="footerleft">
+		<p><a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>.</p>
+    </div>
+    <div class="footerright">
+	    Theme: <a href="http://theme.wordpress.com/themes/enterprise/" title="Learn more about this theme">Enterprise</a> by <a href="http://www.studiopress.com/" rel="designer">StudioPress</a>.    </div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.en,type.wpcom,posttag.iteration,posttag.recursion,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript>&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.en%2Ctype.wpcom%2Cposttag.iteration%2Cposttag.recursion%2Cas" height="1" width="1" alt="" /&gt;&lt;/div&gt;</noscript>
+
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	(function($){
+		$(document).on( 'ready post-load', function() {
+
+			// Remove the login box when clicking the page
+			$( document ).mousedown( function( e ) {
+				if ( null == $( e.target ).closest( '#wpl-mustlogin' ).get( 0 ) ) {
+					$( '#wpl-mustlogin' ).remove();
+				}
+			});
+
+			// Handle clicking the like button itself
+			$('.wpl-button > a.like').click( function(e) {
+				e.preventDefault();
+
+				var postid = $(this).parent().attr('id').split('like-')[1];
+				$.post( 'http://cse250.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_like_click'
+				} );
+
+				var tenMins = new Date();
+				tenMins.setTime( tenMins.getTime() + 600000 );
+				document.cookie = 'wpl_rand=a7f958b8c7; expires=' + tenMins.toGMTString() + '; domain=wordpress.com; path=/;';
+
+				$(this).parent().siblings('.wpl-count').after( '\
+					<div id="wpl-mustlogin"> \
+						<form action="https://cse250.wordpress.com/wp-login.php" method="post"> \
+							<p>Just one more step to like this:</p> \
+							<label><span>Username</span> <input type="text" name="log" id="user_login" class="input" value="" size="20" tabindex="80" /></label> \
+							<label><span>Password</span> <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" tabindex="81" /></label> \
+							<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Log In" tabindex="82" /> \
+							<input type="hidden" name="postid" value="' + postid + '" /> \
+							<input type="hidden" name="redirect_to" value="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration?year=2012&#038;monthnum=11&#038;day=01&#038;name=practice-problems-on-recursion-iteration&#038;like=1" /> \
+							<input type="hidden" name="wpl_rand" value="a7f958b8c7" /> \
+							<p>Not a member yet? <a href="http://wordpress.com/signup/?ref=likebox&user=1" id="wpl-signup-link">Sign up with WordPress.com for free</a></p> \
+						</form> \
+					</div> \
+				');
+
+				$('#wpl-mustlogin').hide().slideDown('fast');
+			} );
+
+			$('#wpl-mustlogin input.input').live( 'focus', function() {
+				$(this).prev().hide();
+			}).live( 'blur', function() {
+				if ( $(this).val() == '' ) {
+					$(this).prev().show();
+				}
+			});
+
+			$('#wpl-mustlogin input#wp-submit').live( 'click', function(e) {
+				e.preventDefault();
+
+				$.post( 'http://cse250.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_login_submit'
+				}, function() {
+					$('#wpl-mustlogin form').submit();
+				} );
+			});
+
+			$('#wpl-mustlogin a#wpl-signup-link').live( 'click', function(e) {
+				e.preventDefault();
+
+				var link = $(this).attr('href');
+
+				$.post( 'http://cse250.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_signup_click'
+				}, function() {
+					location.href = link;
+				} );
+			});
+		})
+	})(jQuery);
+	/* ]]> */
+	</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/wpgroho.js"></script>
+<script>jQuery(document).ready(function($){ Gravatar.profile_cb = function( h, d ) { WPGroHo.syncProfileData( h, d );	}; Gravatar.my_hash = WPGroHo.my_hash; Gravatar.init( 'body', '#wp-admin-bar-my-account' ); });</script>	<div style="display:none">
+	<div class="grofile-hash-map-ad8c4cfbf9912f7ba6b3abef1df93d2e">
+	</div>
+	<div class="grofile-hash-map-f73f6de5b519f67d3aa73cd03eebad88">
+	</div>
+	<div class="grofile-hash-map-3e6c65d51fc16836fc664646b7c31de4">
+	</div>
+	<div class="grofile-hash-map-ba877c9f00b36e3a79c07b456bc1f2d9">
+	</div>
+	<div class="grofile-hash-map-cc5f359e6c6646c3e16d0d954c779b4a">
+	</div>
+	<div class="grofile-hash-map-9dd90bdfa69d1cd10743d678fec37c16">
+	</div>
+	<div class="grofile-hash-map-cc5f359e6c6646c3e16d0d954c779b4a">
+	</div>
+	<div class="grofile-hash-map-cf2d58df2cc517644899e381ad3b27df">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/cse250.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/cse250.wordpress.com\/wp-login.php?action=logout&_wpnonce=f4afca24b9","homeURL":"http:\/\/cse250.wordpress.com\/","postID":"1316","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/script.js"></script>
+
+	<div id="bit" class="loggedout-follow-normal" style="bottom: -266px;">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “CSE 250 -- Fall 2012”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 34 other followers</p>
+			<p><input type="email" name="email" style="width: 95%; padding: 1px 2px" value="Enter your email address" onfocus="this.value=(this.value==&quot;Enter your email address&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="31128294">
+			<input type="hidden" name="source" value="http://cse250.wordpress.com/2012/11/01/practice-problems-on-recursion-iteration/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="32ca909089"><input type="hidden" name="_wp_http_referer" value="/2012/11/01/practice-problems-on-recursion-iteration/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/cse250.wordpress.com\/2012\/11\/01\/practice-problems-on-recursion-iteration\/":1316}	</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/sharing.js"></script>
+		<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function(){
+			jQuery( 'a.share-twitter' ).click(function(){
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function(){
+			jQuery( 'a.share-facebook' ).click(function(){
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+		<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/saved_resource(2)"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var themecssurl = "http://s0.wp.com/wp-content/plugins/syntaxhighlighter-wpcom/shThemeDefault.css?m=1267535107g&amp;ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1253219630g';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/cse250.wordpress.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif","closeImage":"http:\/\/cse250.wordpress.com\/wp-includes\/js\/thickbox\/tb-close.png"};
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/cse250.wordpress.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif","closeImage":"http:\/\/cse250.wordpress.com\/wp-includes\/js\/thickbox\/tb-close.png"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Practice problems on recursion & iteration « CSE 250 — Fall 2012_files/saved_resource(3)"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="http://s.stats.wordpress.com/w.js?21" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'31128294','v':'wpcom','tz':'-5','user_id':'0','post':'1316','subd':'cse250'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3B3b1ouTiZRdFtwZz0uMFAuQ3VLUGdzaVJ2VmptenVpaG5pT05kdGp6SzZxUXk/czgmbkkmXVtIcG5kcTNBZnh0PU5aR054VGY3S1o2U29pZUo9P2g4eVdyRi0vQWpyTFlwLDRCUGRSbUhQb2YsaTZdOUlPVmJMLnk4P3B+PVVVLGFTcWk/NktGa3d6K0FZdlh4OCVhV2ZaV3MsM1o5PUtxRUlPWDJoQkpKWGZIRH51LU9VXU5NM342WEJbV1hQZkZ0ZWFGa0NnQm0xMXQ5JWhrTmVFbF1KbHx0Y2Q1VG12c1pOYVBJcWUmflh0L3UxNzVQbVE5Vw=='});
+addLoadEvent(function(){linktracker_init('31128294',1316);});
+	</script>
+<noscript>&lt;img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+
+
+</body></html>
