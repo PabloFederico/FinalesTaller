@@ -1,0 +1,198 @@
+// Coloquio1y3.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+typedef struct{
+
+	int x;
+	int y;
+	float ataque;
+
+}Enemigo;
+
+typedef struct{
+
+	char id[10];
+	int x;
+	int y;
+	float energia;
+	int ciclos;
+	int celdas;
+	int murio;//1 si murio
+
+}Personaje;
+
+
+void procesarEnemigos(Enemigo* enemigos,int &cantidad)
+{
+	FILE* archivo;
+	archivo = fopen("enemigos.txt","r");
+
+	int cant = 0;
+	for(int i=0; !feof(archivo);i++)
+	{
+		fscanf(archivo,"%i %i %f",&enemigos[i].x,&enemigos[i].y,&enemigos[i].ataque);
+		cant = cant + 1;
+	}
+	cantidad = cant;
+}
+
+bool hayAtaque(Personaje personaje,Enemigo enemigo)
+{
+	int px = personaje.x;
+	int py = personaje.y;
+
+	int ex = enemigo.x;
+	int ey = enemigo.y;
+
+	if( (abs(ex - px) <= 1) && (abs(ey - py) <= 1) )
+		return true;
+	else return false;
+
+}
+
+bool puedeMoverse(Personaje personaje, Enemigo enemigo)
+{
+	int px = personaje.x;
+	int py = personaje.y;
+
+	int ex = enemigo.x;
+	int ey = enemigo.y;
+
+	if( ((ex - px) == 1) && ((ey - py ) == 0) )
+		return false;
+	else return true;
+
+}
+
+
+void moverPersonaje(Personaje &personaje,Enemigo* enemigos,int cantidad)
+{
+	int celdas = 0;
+	int ciclos = 0;
+	bool sigue = true;
+
+	while(sigue)
+	{
+		ciclos = ciclos + 1;
+		bool huboataque = false;
+		bool puedemoverse = true;
+
+		for(int i=0; i< cantidad ; i++)
+		{
+
+			bool ataco = hayAtaque(personaje,enemigos[i]);
+			if (ataco == true){
+				huboataque = true;
+				personaje.energia = personaje.energia - enemigos[i].ataque;
+				
+				if(puedemoverse != false)
+				puedemoverse = puedeMoverse(personaje,enemigos[i]);
+
+			}
+
+		}
+
+		//MUERE
+		if(personaje.energia <= 0)
+		{
+			personaje.murio = 1;
+			personaje.celdas = celdas;
+			personaje.ciclos = ciclos;
+			sigue = false;
+
+		}
+
+		//SE SALVO
+		if(personaje.x == 100 && huboataque == false)
+		{
+			personaje.murio = 0;
+			personaje.celdas = -1;
+			sigue = false;
+		}
+
+		if(personaje.x != 100 && puedemoverse == true)
+		{
+			celdas = celdas + 1;
+			personaje.x = personaje.x + 1;
+		}
+
+	}
+
+
+}
+
+
+void procesarPersonaje(Personaje* personajes,int &cantidadPersonajes,Enemigo* enemigos, int cantidadEnemigos)
+{
+	FILE* archivo;
+	archivo = fopen("personajes.txt","r");
+
+	int cant = 0;
+	for(int i=0; !feof(archivo);i++)
+	{
+		fscanf(archivo,"%s %i %i %f",&personajes[i].id,&personajes[i].x,&personajes[i].y,&personajes[i].energia);
+		if(strcmp("A",personajes[i].id) == 0){
+		moverPersonaje(personajes[i],enemigos,cantidadEnemigos);
+		cant = cant + 1;
+		}
+	}
+	cantidadPersonajes = cant;
+
+
+}
+
+int compare(const void* a, const void* b)
+{
+	int c1 = ((Personaje*)a)->celdas;
+	int c2 = ((Personaje*)b)->celdas;
+
+	if(c1 < c2) return -1;
+	if(c1 == c2) return 0;
+	return 1;
+
+}
+
+void ordenarResultado(Personaje* personajes,int cantidad)
+{
+	qsort(personajes,cantidad,sizeof(Personaje),compare);
+
+}
+
+void mostrar(Personaje* personajes, int cantidad){
+
+	cout<<"ID	"<<"CICLOS	"<<"CELDAS"<<endl;
+	for(int i=0;i<cantidad;i++)
+	{
+		if(personajes[i].murio == 1){
+
+			cout<<personajes[i].id<<"	"<<personajes[i].ciclos<<"	"<<personajes[i].celdas<<endl;
+
+		}
+	}
+
+
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	Enemigo enemigos[10];
+	int cantidadEnemigos;
+	procesarEnemigos(enemigos,cantidadEnemigos);
+	
+	Personaje personajes[5];
+	int cantidadPersonajes;
+	procesarPersonaje(personajes,cantidadPersonajes,enemigos,cantidadEnemigos);
+
+	ordenarResultado(personajes,cantidadPersonajes);
+	mostrar(personajes,cantidadPersonajes);
+
+	getchar();
+	return 0;
+}
+
