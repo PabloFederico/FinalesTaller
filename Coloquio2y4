@@ -1,0 +1,205 @@
+// 90280coloquio.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+
+typedef struct{
+
+	int x;
+	int y;
+	float ataque;
+	int alcance;
+
+}Enemigo;
+
+typedef struct{
+
+	char id[10];
+	int x;
+	int y;
+	float energia;
+	float escudo;
+	int ciclos;
+	int celdas;
+	int murio; //0 no murio 1 si murio
+
+}Personaje;
+
+void procesarEnemigos(Enemigo* enemigos,int &cantidad)
+{
+FILE* archivo;
+archivo = fopen("enemigos.txt","r");
+if(archivo == NULL) cout<<"no archivo"<<endl;
+
+int cant = 0;
+
+for(int i=0; !feof(archivo);i++)
+{
+	fscanf(archivo,"%i %i %f %i",&enemigos[i].x,&enemigos[i].y,&enemigos[i].ataque,&enemigos[i].alcance);
+	cant = cant + 1;
+}
+
+cantidad = cant;
+
+}
+
+bool hayataque(Personaje personaje,Enemigo enemigo)
+{
+	int p_x = personaje.x;
+	int p_y = personaje.y;
+
+	int e_x = enemigo.x;
+	int e_y = enemigo.y;
+
+	if( (abs(e_x - p_x) <= enemigo.alcance) && (abs(e_y - p_y) <= enemigo.alcance) )
+		return true;
+	else return false;
+
+}
+
+bool puedeMoverse(Personaje personaje,Enemigo enemigo)
+{
+	int p_x = personaje.x;
+	int p_y = personaje.y;
+
+	int e_x = enemigo.x;
+	int e_y = enemigo.y;
+
+	if((e_x - p_x == 1) && (e_y - p_y == 0))
+		return false;
+	else return true;
+
+}
+
+void moverPersonaje(Personaje &personaje,Enemigo* enemigos, int cantidadEnemigos)
+{
+int celdas = 0;
+int ciclos = 0;
+bool sigue = true;
+
+
+
+	while(sigue){
+	
+		ciclos = ciclos + 1;
+		bool hubodescuento = false;
+		bool moverse = true;
+		bool huboataque = false;
+
+			for(int i=0;i < cantidadEnemigos;i++)
+			{
+				bool ataque = hayataque(personaje,enemigos[i]);
+				if(ataque == true)
+				{					
+					huboataque = true;
+					float proteccion = personaje.escudo - enemigos[i].ataque;
+					if (proteccion < 0){
+						personaje.energia = personaje.energia + proteccion;
+						hubodescuento = true;
+					}
+					if( moverse != false)
+						moverse = puedeMoverse(personaje,enemigos[i]);
+				}
+			}
+		
+		//Termino de recorrer los enemigos y no tengo energia
+		if(personaje.energia <= 0){
+			personaje.celdas = celdas;
+			personaje.ciclos = ciclos;
+			personaje.murio = 1;
+			break;
+		}
+
+		//Llegue a la ultima fila y no hay descuento, se salva
+		if (personaje.x == 99 && hubodescuento == false)
+		{
+			personaje.celdas = -1;
+			personaje.murio = 0;			
+			break;
+		}
+
+		//Quedo atrapado con un enemigo pero no muere
+		if (moverse == false && hubodescuento == false)
+		{
+			personaje.celdas = -1;
+			personaje.murio = 0;
+			sigue = false;
+			break;
+		}
+
+		if (moverse == true && personaje.x != 99){
+			celdas = celdas + 1;
+			personaje.x = personaje.x + 1;
+		}
+
+
+	}
+
+}
+
+void procesarPersonajes(Personaje* personajes,int &cantidadPersonajes,Enemigo* enemigos,int cantidadEnemigos)
+{
+FILE* archivo;
+archivo = fopen("personajes.txt","r");
+if (archivo == NULL) cout<<"no existe";
+int cant = 0;
+
+for(int i=0; !feof(archivo);i++)
+{
+	fscanf(archivo,"%s %i %i %f %f",&personajes[i].id,&personajes[i].x,&personajes[i].y,&personajes[i].energia,&personajes[i].escudo);
+	//cout<<personajes[i].id<<" "<<personajes[i].x<<" "<<personajes[i].y<<" "<<personajes[i].energia<<" "<<personajes[i].escudo<<endl;
+	moverPersonaje(personajes[i],enemigos,cantidadEnemigos);
+	cant = cant + 1;
+}
+cantidadPersonajes = cant;
+}
+
+int compare(const void* p1, const void* p2)
+{
+	int c1 = ((Personaje*)p1)->celdas;
+	int c2 = ((Personaje*)p2)->celdas;
+
+	if (c1 < c2) return -1;
+	if (c1 == c2) return 0;
+	return 1;
+}
+
+void ordenarPersonajes(Personaje* personajes,int cantidad)
+{
+	qsort(personajes,cantidad,sizeof(Personaje),compare);
+}
+
+
+void mostrar(Personaje* personajes, int cantidad)
+{	
+	cout<<"ID  "<<"Ciclos "<<"Celdas"<<endl; 
+	for(int i=0;i<cantidad;i++)
+	{
+		if(personajes[i].murio == 1){
+			cout<<personajes[i].id<<"    "<<personajes[i].ciclos<<"   "<<personajes[i].celdas<<endl;
+		}
+	}
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	
+	Enemigo enemigos[13];
+	int cantidadEnemigos;
+	procesarEnemigos(enemigos,cantidadEnemigos);
+
+
+	Personaje personajes[15];
+	int cantidadPersonajes;
+	procesarPersonajes(personajes,cantidadPersonajes,enemigos,cantidadEnemigos);
+
+	ordenarPersonajes(personajes,cantidadPersonajes);
+	mostrar(personajes,cantidadPersonajes);
+	
+	getchar();
+	return 0;
+}
